@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ticket</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ticket.id }}</td>
+            </tr>
+            <tr>
+                <th>Request</th>
+                <td>{{ ticket.request }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ ticket.title }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if ticket.createdAt %}{{ ticket.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Editedat</th>
+                <td>{% if ticket.editedAt %}{{ ticket.editedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Priority</th>
+                <td>{{ ticket.priority }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{% if ticket.state %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ ticket.picture }}</td>
+            </tr>
+            <tr>
+                <th>Problem</th>
+                <td>{{ ticket.problem }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tickets_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tickets_edit', { 'id': ticket.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
