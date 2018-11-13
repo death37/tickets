@@ -1,0 +1,33 @@
+{
+  "name": "tickets",
+  "version": "1.0.0",
+  "description": "tickets management",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "foundation-sites": "^6.5.0",
+    "jquery": "^3.3.1",
+    "what-input": "^5.1.3"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.21.0",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "webpack-notifier": "^1.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/death37/tickets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/death37/tickets/issues"
+  },
+  "homepage": "https://github.com/death37/tickets#readme"
+}
