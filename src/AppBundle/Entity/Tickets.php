@@ -312,7 +312,7 @@ class Tickets
      *
      * @return null|file
      */
-    function getImageFile(): ?File {
+    function getImageFile(): File {
         return $this->imageFile;
     }
     
@@ -323,7 +323,7 @@ class Tickets
      *
      * @return Tickets
      */
-    function setImageFile(?File $imageFile): Tickets {
+    function setImageFile(File $imageFile): Tickets {
         $this->imageFile = $imageFile;
         if (null !== $image) {
         // It is required that at least one field changes if you are using doctrine
@@ -338,7 +338,7 @@ class Tickets
      *
      * @return null|string
      */
-    function getImageName(): ?string {
+    function getImageName(): string {
         return $this->imageName;
     }
     
@@ -349,7 +349,7 @@ class Tickets
      *
      * @return Tickets
      */
-    function setImageName(?string $imageName): Tickets {
+    function setImageName(string $imageName): Tickets {
         $this->imageName = $imageName;
         return $this;
     }
