@@ -1,3 +1,4 @@
-require('../css/app.css');
-
-console.log('Hello Webpack Encore');
+require('../scss/app.scss');
+require('jquery');
+require('material-design-lite');
+console.log('Hello there !');

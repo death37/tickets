@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Tickets
  *
  * @ORM\Table(name="tickets")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TicketsRepository")
+ * @Vich\Uploadable
  */
 class Tickets
 {
@@ -77,6 +80,28 @@ class Tickets
      */
     private $problem;
 
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * 
+     * @Vich\UploadableField(mapping="tickets_image", fileNameProperty="imageName")
+     * 
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string|null
+     */
+    private $imageName;
+    
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * Get id
@@ -87,6 +112,8 @@ class Tickets
     {
         return $this->id;
     }
+    
+    
 
     /**
      * Set request
@@ -279,4 +306,53 @@ class Tickets
     {
         return $this->problem;
     }
+    
+    /**
+     * Get imageFile
+     *
+     * @return null|file
+     */
+    function getImageFile(): File {
+        return $this->imageFile;
+    }
+    
+    /**
+     * Set imageFile
+     *
+     * @param null|file $imageFile
+     *
+     * @return Tickets
+     */
+    function setImageFile(File $imageFile): Tickets {
+        $this->imageFile = $imageFile;
+        if (null !== $image) {
+        // It is required that at least one field changes if you are using doctrine
+        // otherwise the event listeners won't be called and the file is lost
+        $this->updatedAt = new \DateTimeImmutable();
+        }
+        return $this;
+    }
+
+    /**
+     * Get imageName
+     *
+     * @return null|string
+     */
+    function getImageName(): string {
+        return $this->imageName;
+    }
+    
+    /**
+     * Set imageName
+     *
+     * @param null|string $imageFile
+     *
+     * @return Tickets
+     */
+    function setImageName(string $imageName): Tickets {
+        $this->imageName = $imageName;
+        return $this;
+    }
+
+
 }
