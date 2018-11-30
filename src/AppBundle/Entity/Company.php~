@@ -62,6 +62,13 @@ class Company
      * @ORM\Column(name="phone", type="string", length=255)
      */
     private $phone;
+    
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="companies", cascade={"persist", "merge", "remove"})
+     *
+     */
+    private $users;
 
 
     /**
@@ -218,4 +225,3 @@ class Company
         return $this->phone;
     }
 }
-

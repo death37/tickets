@@ -1,0 +1,52 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+<!-- Brand/logo -->
+<div class="formlogin">
+
+    <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <div class="login-container">
+            {% if error %}
+                <div class="text-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+            <div class="id">
+                <div class="identuserlabel">
+                    <label for="username">Votre identifiant :</label>
+                </div>
+                <div class="identuserinput">
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                </div>
+            </div>
+            <div class="id">
+                <div class="identpasslabel">
+                    <label for="password">Votre mot de passe :</label>
+                </div>
+                <div class="identpassinput">    
+                    <input class="pass" type="password" id="password" name="_password" required="required" />
+                </div>
+            </div>
+
+            <div class="id" id="check"> 
+
+                <div class="connexion">
+                    <button class="login login-submit log" type="submit" id="_submit" name="_submit" value="">{{ 'security.login.submit'|trans }}</button>
+                </div>  
+                <br>
+                <div id="remember">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                </div>
+            </div>
+
+
+            {% if select is not defined %}
+                <div class="createcompte">
+                    <a class="btn" href="{{ path('fos_user_registration_register') }}" id="compte">Créer un compte</a> 
+                    <a class="mpoublie" href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié</a>
+                </div>
+            {% endif %} 
+        </div>
+    </form>
+</div>

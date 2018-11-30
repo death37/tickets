@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Company;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -40,6 +41,8 @@ class CompanyController extends Controller
     public function newAction(Request $request)
     {
         $company = new Company();
+        $users = $this->getUsers();
+        $company->setUsers($users);
         $form = $this->createForm('AppBundle\Form\CompanyType', $company);
         $form->handleRequest($request);
 

@@ -62,6 +62,13 @@ class Company
      * @ORM\Column(name="phone", type="string", length=255)
      */
     private $phone;
+    
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="companies", cascade={"persist", "merge", "remove"})
+     *
+     */
+    private $users;
 
 
     /**
@@ -216,5 +223,60 @@ class Company
     public function getPhone()
     {
         return $this->phone;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Company
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+    
+    /**
+     * Set user
+     *
+     * @param string $user
+     *
+     * @return Company
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }
