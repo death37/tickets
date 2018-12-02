@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block fos_user_content %}
+<div class="login-base">
+<!-- Wide card with share menu button -->
+        <style>
+        .demo-card-wide.mdl-card {
+          width: 100%;
+        }
+        .demo-card-wide > .mdl-card__title {
+          color: #fff;
+          height: 176px;
+          background: url('../images/logo.png') center / cover;
+        }
+        .demo-card-wide > .mdl-card__menu {
+          color: #fff;
+        }
+        </style>
+
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Connexion a votre compte</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            {% include "@FOSUser/Registration/register_content.html.twig" %}
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              Get Started
+            </a>
+          </div>
+          <div class="mdl-card__menu">
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+              <i class="material-icons">share</i>
+            </button>
+          </div>
+        </div>
+        
+        
+        
+    </div>
+{% endblock fos_user_content %}

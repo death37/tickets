@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/wamp/www/tickets/web/assets/scss/app.scss</file>
             <file>file:/C:/wamp/www/tickets/app/config/routing.yml</file>
             <file>file:/C:/wamp/www/tickets/web/assets/js/app.js</file>
@@ -14,6 +15,12 @@
             <file>file:/C:/wamp/www/tickets/web/assets/scss/styles.css</file>
             <file>file:/C:/wamp/www/tickets/app/config/config.yml</file>
             <file>file:/C:/wamp/www/tickets/src/AppBundle/Entity/User.php</file>
+=======
+            <file>file:/home/biggles414/Projets/tickets/app/Resources/views/base.html.twig</file>
+            <file>file:/home/biggles414/Projets/tickets/app/Resources/FOSUserBundle/views/Registration/register.html.twig</file>
+            <file>file:/home/biggles414/Projets/tickets/app/Resources/FOSUserBundle/views/Security/login.html.twig</file>
+            <file>file:/home/biggles414/Projets/tickets/app/Resources/FOSUserBundle/views/Security/login_content.html.twig</file>
+>>>>>>> 0aa6c6638d5faba4fcd1db698bfd0c0cbad44c05
         </group>
     </open-files>
 </project-private>

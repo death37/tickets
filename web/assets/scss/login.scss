@@ -1,0 +1,86 @@
+.login-base
+{}
+
+#header{
+    .login-render {
+        display: flex;
+        align-items: center;
+    }
+
+    .login-container {
+        display: flex;
+        align-items: baseline;
+    }
+    .identuserlabel {
+        margin-right: 10px;
+    }
+    .identuserinput {
+        width: auto;
+        margin-right: 10px;
+        font-size: 15px;
+
+    }
+    .identpasslabel {
+        margin-right: 10px;
+
+    }
+
+    .identpassinput {
+        width: auto;
+        margin-right: 10px;
+        font-size: 15px;
+    }
+    .pass {
+        width: 120px;
+    }
+    .remember {
+        margin-right: 10px;
+    }
+    #username,#password
+    {
+        width: 120px;
+        text-align: center;
+        border-radius: 2px;
+        background-color: white;
+    }
+    .login-container input[type=text]:hover, input[type=password]:hover {
+        border: 1px solid #b9b9b9;
+        border-top: 1px solid #a0a0a0;
+        -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .login-submit {
+        border-radius: 15px;
+        background-color: #F1F1F1;
+        border: 1px solid #F1F1F1;
+        padding: 6px 20px;
+        margin-right: 10px;
+        border-bottom:1px solid #F1F1F1;
+        -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+        -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+        cursor:pointer;
+        display:block;
+        width:100%;
+
+    }
+    #compte {
+        border-radius: 15px;
+        background-color: #79aede;
+        border: 1px solid #79aede;
+        text-align: center;
+        padding: 6px 20px;
+        margin-right: 15px;
+    }
+    #compte:hover{
+        background-color: #ffffff;
+        border: 1px solid #ffffff;
+        text-decoration: none;
+    }
+    .login-submit:hover{
+        background-color: #ffffff;
+        border: 1px solid #ffffff;
+        text-decoration: none;
+    }
+}

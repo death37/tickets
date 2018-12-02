@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Tickets;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Ticket controller.
@@ -39,7 +40,7 @@ class TicketsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $ticket = new Ticket();
+        $ticket = new Tickets();
         $form = $this->createForm('AppBundle\Form\TicketsType', $ticket);
         $form->handleRequest($request);
 
