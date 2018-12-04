@@ -7,6 +7,7 @@
 
 <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
     for="demo-menu-lower-left">
+    <li class="mdl-menu__item"><a href="{{ path('homepage') }}" >Accueil</li>
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <li class="mdl-menu__item"><a href="{{ path('fos_user_security_logout') }}" >Déconnexion</a></li>
         {% else %}
@@ -14,6 +15,6 @@
     {% endif %}    
         
         <li class="mdl-menu__item mdl-menu__item--full-bleed-divider"><a href="/register">Créer un compte</a></li>
-        <li disabled class="mdl-menu__item">Disabled Action</li>
+        
         <li class="mdl-menu__item"></li>
 </ul>

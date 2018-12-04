@@ -41,6 +41,7 @@ class TicketsController extends Controller
     public function newAction(Request $request)
     {
         $ticket = new Tickets();
+        $users = $this->getUsers();
         $form = $this->createForm('AppBundle\Form\TicketsType', $ticket);
         $form->handleRequest($request);
 

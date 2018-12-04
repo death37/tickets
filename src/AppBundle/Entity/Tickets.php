@@ -55,7 +55,7 @@ class Tickets
     /**
      * @var string
      *
-     * @ORM\Column(name="priority", type="string", length=255)
+     * @ORM\Column(name="priority", type="string", length=255, nullable=true)
      */
     private $priority;
 
@@ -69,7 +69,7 @@ class Tickets
     /**
      * @var string
      *
-     * @ORM\Column(name="picture", type="string", length=255)
+     * @ORM\Column(name="picture", type="string", length=255, nullable=true)
      */
     private $picture;
 
@@ -90,7 +90,7 @@ class Tickets
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string|null
      */
@@ -109,6 +109,16 @@ class Tickets
      *
      */
     private $users;
+    
+    
+    public function __construct()
+    {
+        
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->editedAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
 
     /**
      * Get id
@@ -385,13 +395,6 @@ class Tickets
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
