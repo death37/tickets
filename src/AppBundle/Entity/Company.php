@@ -229,7 +229,9 @@ class Company
      */
     public function __construct()
     {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->editedAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     /**

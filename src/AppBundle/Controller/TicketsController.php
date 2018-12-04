@@ -41,12 +41,14 @@ class TicketsController extends Controller
     public function newAction(Request $request)
     {
         $ticket = new Tickets();
-        $users = $this->getUsers();
+        $user = $this->getUser();
+        $ticket->setUser($user);
         $form = $this->createForm('AppBundle\Form\TicketsType', $ticket);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
             $em->persist($ticket);
             $em->flush();
 
@@ -54,6 +56,7 @@ class TicketsController extends Controller
         }
 
         return $this->render('tickets/new.html.twig', array(
+            'user' => $user,
             'ticket' => $ticket,
             'form' => $form->createView(),
         ));

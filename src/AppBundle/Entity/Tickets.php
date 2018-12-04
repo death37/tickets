@@ -27,13 +27,6 @@ class Tickets
     /**
      * @var string
      *
-     * @ORM\Column(name="request", type="string", length=255)
-     */
-    private $request;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
@@ -113,8 +106,6 @@ class Tickets
     
     public function __construct()
     {
-        
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->editedAt = new \DateTime();
         $this->updatedAt = new \DateTime();
@@ -130,32 +121,6 @@ class Tickets
         return $this->id;
     }
     
-    
-
-    /**
-     * Set request
-     *
-     * @param string $request
-     *
-     * @return Tickets
-     */
-    public function setRequest($request)
-    {
-        $this->request = $request;
-
-        return $this;
-    }
-
-    /**
-     * Get request
-     *
-     * @return string
-     */
-    public function getRequest()
-    {
-        return $this->request;
-    }
-
     /**
      * Set title
      *

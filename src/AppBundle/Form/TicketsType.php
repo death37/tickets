@@ -13,7 +13,7 @@ class TicketsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('request')->add('title')->add('createdAt')->add('editedAt')->add('priority')->add('state')->add('picture')->add('problem');
+        $builder->add('title')->add('priority')->add('state')->add('picture')->add('problem');
     }
     
     /**

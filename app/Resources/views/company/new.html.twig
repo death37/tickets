@@ -1,13 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {{ dump(form) }}
     <h1>Company creation</h1>
-
+<div class="mdl-textfield mdl-js-textfield">
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        {{ form_label(form, {'attr': {'class': 'mdl-textfield__label'}}) }}
+        {{ form_widget(form, {'attr': {'class': 'your-class'}}) }}
+        {{ form_errors(form, {'attr': {'class': 'your-class'}}) }}
+        {#{{ form(form.children.name) }}#}
+        {#{{ form_row(form.children.address) }}
+        {{ form_row(form.children.postal) }}
+        {{ form_row(form.children.city) }}
+        {{ form_row(form.children.phone) }}#}
+        
+        
+        
+        <input type="submit" value="Valider" />
     {{ form_end(form) }}
-
+</div>
     <ul>
         <li>
             <a href="{{ path('company_index') }}">Back to the list</a>
