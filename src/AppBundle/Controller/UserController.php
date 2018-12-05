@@ -31,12 +31,11 @@ class UserController extends Controller
     public function indexAction(AuthorizationCheckerInterface $authChecker)
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->getUser();
-
+        $users = $em->getRepository('AppBundle:User')->findAll();
         
-
-        return $this->render('user/show.html.twig', array(
-                'user' => $user,
+        
+        return $this->render('user/index.html.twig', array(
+            'users' => $users,
         ));
     }
     /**

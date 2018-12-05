@@ -76,6 +76,8 @@ fos_user:
         address: "nico@mail.com"
         sender_name: "nico"
         
+    
+        
 vich_uploader:
     db_driver: orm # or mongodb or propel or phpcr
     
