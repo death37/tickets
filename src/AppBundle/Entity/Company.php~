@@ -224,4 +224,61 @@ class Company
     {
         return $this->phone;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->editedAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Company
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+    
+    /**
+     * Set user
+     *
+     * @param string $user
+     *
+     * @return Company
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
 }

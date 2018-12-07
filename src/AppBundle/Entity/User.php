@@ -57,7 +57,7 @@ class User extends BaseUser
     private $function;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tickets", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Tickets", mappedBy="users", cascade={"persist"}, fetch="EAGER")
      */
     private $tickets;
     

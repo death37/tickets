@@ -22,7 +22,7 @@
         {% for ticket in tickets %}
             <tr>
                 <td><a href="{{ path('tickets_show', { 'id': ticket.id }) }}">{{ ticket.id }}</a></td>
-                <td>{{ ticket.request }}</td>
+{#                <td>{{ ticket.request }}</td>#}
                 <td>{{ ticket.title }}</td>
                 <td>{% if ticket.createdAt %}{{ ticket.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if ticket.editedAt %}{{ ticket.editedAt|date('Y-m-d H:i:s') }}{% endif %}</td>

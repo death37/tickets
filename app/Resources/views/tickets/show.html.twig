@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {{ dump() }}
     <h1>Ticket</h1>
 
     <table>
@@ -11,7 +12,7 @@
             </tr>
             <tr>
                 <th>Request</th>
-                <td>{{ ticket.request }}</td>
+{#                <td>{{ ticket.users }}</td>#}
             </tr>
             <tr>
                 <th>Title</th>

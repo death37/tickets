@@ -98,7 +98,7 @@ class Tickets
     
     /**
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="tickets", cascade={"persist", "merge", "remove"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="tickets", cascade={"persist", "merge", "remove"}, fetch="EAGER")
      *
      */
     private $users;
@@ -394,5 +394,19 @@ class Tickets
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set users
+     *
+     * @param \AppBundle\Entity\User $users
+     *
+     * @return Tickets
+     */
+    public function setUsers(\AppBundle\Entity\User $users = null)
+    {
+        $this->users = $users;
+
+        return $this;
     }
 }

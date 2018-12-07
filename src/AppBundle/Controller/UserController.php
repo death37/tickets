@@ -33,11 +33,11 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('AppBundle:User')->findAll();
         
-        
         return $this->render('user/index.html.twig', array(
             'users' => $users,
         ));
     }
+    
     /**
      * Lists all user entities.
      *
@@ -49,6 +49,7 @@ class UserController extends Controller
         
     return $this->render('user/addcsv.html.twig');
     }
+    
     /**
      * Finds and displays a user entity.
      *
@@ -74,7 +75,7 @@ class UserController extends Controller
      * @Method({"GET", "POST"})
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
-    public function newAction(Request $request, EventDispatcherInterface $eventDispatcher)
+    public function newAction(Request $request)
     {
         $user = $this->getUser();
         $dataEntreprise = $user->getEntreprise();
@@ -93,9 +94,6 @@ class UserController extends Controller
                     'addMonoUser.event.mail', new UserMailEvent($user, $dataEntreprise, $data)
             );
 
-        
-         
-
             return $this->redirectToRoute('user_index');
         }
 
@@ -113,7 +111,7 @@ class UserController extends Controller
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      *
      */
-    public function editAction(Request $request, User $user, FileUploader $fileUploader)
+    public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
         $editForm = $this->createForm('AppBundle\Form\UserType', $user);

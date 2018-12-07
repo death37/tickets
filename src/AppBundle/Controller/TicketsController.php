@@ -3,10 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Tickets;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Ticket controller.
@@ -37,18 +39,20 @@ class TicketsController extends Controller
      *
      * @Route("/new", name="tickets_new")
      * @Method({"GET", "POST"})
+     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
     public function newAction(Request $request)
     {
         $ticket = new Tickets();
+        $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $ticket->setUser($user);
+        $ticket->setUsers($user);
         $form = $this->createForm('AppBundle\Form\TicketsType', $ticket);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            
+            $em->persist($user);
             $em->persist($ticket);
             $em->flush();
 
