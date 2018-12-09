@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ dump(form) }}
     <h1>Company creation</h1>
-<div class="mdl-textfield mdl-js-textfield">
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     {{ form_start(form) }}
-        {{ form_label(form, {'attr': {'class': 'mdl-textfield__label'}}) }}
-        {{ form_widget(form, {'attr': {'class': 'your-class'}}) }}
+        {{ form_label(form) }}
+        {{ form_widget(form, {'label_attr': {'class': 'mdl-textfield__label'}}) }}
         {{ form_errors(form, {'attr': {'class': 'your-class'}}) }}
         {#{{ form(form.children.name) }}#}
         {#{{ form_row(form.children.address) }}

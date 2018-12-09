@@ -24,7 +24,12 @@
   </div>
   <div class="mdl-card__supporting-text">
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a href="{{ path('tickets_new') }}">Ouvrir un nouveau ticket</a>
+        <div class="showTicket">
+            <a href="{{ path('tickets_index') }}">Liste des tickets</a>
+        </div>    
+        <div class="newTicket">    
+            <a href="{{ path('tickets_new') }}">Ouvrir un nouveau ticket</a>
+        </div>    
       {% endif %}
   </div>
   <div class="mdl-card__actions mdl-card--border">

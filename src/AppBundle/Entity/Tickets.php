@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+
 /**
  * Tickets
  *
@@ -59,12 +60,14 @@ class Tickets
      */
     private $state;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="picture", type="string", length=255, nullable=true)
-     */
-    private $picture;
+//    /**
+//     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+//     * 
+//     * @Vich\UploadableField(mapping="tickets", fileNameProperty="imageName")
+//     * 
+//     * @var File|null
+//     */
+//    private $picture;
 
     /**
      * @var string
@@ -76,9 +79,9 @@ class Tickets
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
-     * @Vich\UploadableField(mapping="tickets_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="tickets", fileNameProperty="imageName", size="imageSize")
      * 
-     * @var File|null
+     * @var File
      */
     private $imageFile;
 
@@ -294,7 +297,7 @@ class Tickets
      *
      * @return null|file
      */
-    function getImageFile(): File {
+    function getImageFile(): ?File {
         return $this->imageFile;
     }
     
@@ -305,35 +308,35 @@ class Tickets
      *
      * @return Tickets
      */
-    function setImageFile(File $imageFile): Tickets {
-        $this->imageFile = $imageFile;
+    public function setImageFile(?File $image = null): void
+    {
+        $this->imageFile = $image;
+
         if (null !== $image) {
-        // It is required that at least one field changes if you are using doctrine
-        // otherwise the event listeners won't be called and the file is lost
-        $this->updatedAt = new \DateTimeImmutable();
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
         }
-        return $this;
     }
 
-    /**
-     * Get imageName
-     *
-     * @return null|string
-     */
-    function getImageName(): string {
+        public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
         return $this->imageName;
     }
     
-    /**
-     * Set imageName
-     *
-     * @param null|string $imageFile
-     *
-     * @return Tickets
-     */
-    function setImageName(string $imageName): Tickets {
-        $this->imageName = $imageName;
-        return $this;
+    public function setImageSize(?int $imageSize): void
+    {
+        $this->imageSize = $imageSize;
+    }
+
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
     }
 
 

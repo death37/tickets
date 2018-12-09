@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ dump() }}
     <h1>Ticket</h1>
 
     <table>
@@ -36,7 +35,7 @@
             </tr>
             <tr>
                 <th>Picture</th>
-                <td>{{ ticket.picture }}</td>
+                <td><img src="/images/tickets/{{ ticket.imageName }}" width="200"></td>
             </tr>
             <tr>
                 <th>Problem</th>
