@@ -37,6 +37,10 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    
+    form_themes:
+        - 'views/materialize_layout.html.twig'   
+
 
 # Doctrine Configuration
 doctrine:
