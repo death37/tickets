@@ -31,20 +31,20 @@ class TicketsType extends AbstractType
                     'attr'       => array('class' => 'mdl-selectfield__select'),
                     'choices' => array('Basse'=>'low', 'Normale'=> 'normal', 'Haute'=>'high', 'Urgent'=>'urgent','Clos'=>'close')
                 ))
-//                ->add('state', ChoiceType::class, array(
-//                    'label'=>'Etat',
-//                    'attr' => array('class' => 'mdl-textfield__input'),
-//                    'choices' => array('Nouveau'=>'new', 'Ouvert'=>'open','En attente'=>'pending','En pause'=>'pause','Résolu'=>'solve')
-//                ))
-//                ->add('imageFile', VichImageType::class, array(
-//                    'label'=>'Image',
-//                    'attr' => array('class' => 'mdl-textfield__input')
-//                ))
-//                
-//                ->add('problem', TextareaType::class, array(
-//                    'label'=>'Problème rencontré',
-//                    'attr' => array('class' => 'mdl-textfield__input')
-//                    ))
+                ->add('state', ChoiceType::class, array(
+                    'label'=>'Etat',
+                    'attr' => array('class' => 'mdl-textfield__input'),
+                    'choices' => array('Nouveau'=>'new', 'Ouvert'=>'open','En attente'=>'pending','En pause'=>'pause','Résolu'=>'solve')
+                ))
+                ->add('imageFile', VichImageType::class, array(
+                    'label'=>'Image',
+                    'attr' => array('class' => 'mdl-textfield__input')
+                ))
+                
+                ->add('problem', TextareaType::class, array(
+                    'label'=>'Problème rencontré',
+                    'attr' => array('class' => 'mdl-textfield__input')
+                    ))
                 ;
     }
     

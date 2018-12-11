@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tickets list</h1>
     <table>
         <thead>
             <tr>
@@ -27,7 +26,7 @@
                 <td>{% if ticket.editedAt %}{{ ticket.editedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ ticket.priority }}</td>
                 <td>{% if ticket.state %}Yes{% else %}No{% endif %}</td>
-                <td><img src="/images/tickets/{{ ticket.imageName }}" width="200"></td>
+                <td><img  class="materialboxed responsive-img" src="/images/tickets/{{ ticket.imageName }}" width="200"></td>
                 <td>{{ ticket.problem }}</td>
                 <td>
                     <ul>
