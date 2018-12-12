@@ -1,2 +1,3 @@
 require('../scss/app.scss');
-require('materialize');
+require('./materialize');
+require('./jquery.collection');

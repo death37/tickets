@@ -39,7 +39,9 @@ twig:
     strict_variables: '%kernel.debug%'
     
     form_themes:
-        - 'views/materialize_layout.html.twig'   
+        - 'materialize_layout.html.twig'
+
+        
 
 
 # Doctrine Configuration
@@ -82,6 +84,7 @@ fos_user:
         
 vich_uploader:
     db_driver: orm
+    twig: true
     mappings:
         tickets:
             uri_prefix: /images/tickets
@@ -90,3 +93,4 @@ vich_uploader:
             inject_on_load: false
             delete_on_update: false
             delete_on_remove: false
+            

@@ -47,7 +47,7 @@ class TicketsController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $ticket->setUsers($user);
-        $form = $this->createForm('AppBundle\Form\TicketsType', $ticket);
+        $form = $this->createForm('AppBundle\Form\TicketsType',$ticket);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -6,14 +6,14 @@
     
 
         {{ form_start(form) }}
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                {{ form_label(form.title) }}
-                {{ form_widget(form.title) }}
-                <div class="mdl-textfield mdl-js-textfield getmdl-select">
-                {{ form_label(form.priority) }}
-                {{ form_widget(form.priority) }}
-                </div>
-            </div>
+            {{ form_label(form) }}
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+            {#<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                
+                {{ form_widget(form) }}
+                
+            </div>#}
             <input type="submit" value="Valider" />
         {{ form_end(form) }}
 
