@@ -1,5 +1,4 @@
 require('../scss/app.scss');
 require('jquery');
-require('material-design-lite');
-
-
+require('./materialize');
+require('./jquery.collection');
