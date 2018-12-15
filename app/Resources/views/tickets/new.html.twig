@@ -6,12 +6,9 @@
     
 
         {{ form_start(form) }}
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                {{ form_label(form.title) }}
-                {{ form_widget(form.title) }}
-                <div class="mdl-textfield mdl-js-textfield getmdl-select">
-                {{ form_label(form.priority) }}
-                {{ form_widget(form.priority) }}
+            <div class="row">
+                <div class="input-field col s6">
+                {{ form_widget(form) }}
                 </div>
             </div>
             <input type="submit" value="Valider" />
