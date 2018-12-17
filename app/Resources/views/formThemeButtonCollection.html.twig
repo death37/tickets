@@ -1,0 +1,33 @@
+{% block DataEntrepriseType_label %}{% endblock %}
+{% block DataEntrepriseType_errors %}{% endblock %}
+
+{% block SocialUrlType_label %}{% endblock %}
+{% block SocialUrlType_errors %}{% endblock %}
+
+{% block SocialUrlType_row %}
+    <div class="row">
+        {{ form_label(form) }}
+  {{ form_errors(form) }}
+  {{ form_widget(form) }}
+</div>  
+{% endblock %}
+
+{% block SocialUrlType_widget %}
+    <div class="col-md-8 inputRight">
+        {{ form_widget(form) }}
+    </div>
+    <div class="col-md-2">
+        <a href="#" class="collection-up btn btn-default"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></i></a>
+        <a href="#" class="collection-down btn btn-default"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></a>
+    </div>
+    <div class="col-md-2">
+        <a href="#" class="collection-add btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        <a href="#" class="collection-remove btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></a>
+    </div>
+{% endblock %}
+
+{% block DataEntrepriseType_widget %}
+    <div class="col-md-12">
+        {{ form_widget(form.socialnetworkurl) }}
+    </div>
+{% endblock %}

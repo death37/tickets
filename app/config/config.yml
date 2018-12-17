@@ -38,8 +38,9 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     
-    form_themes:
-        - 'materialize_layout.html.twig'
+    form_theme:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+        - '@VichUploader/Form/fields.html.twig'
 
         
 
@@ -84,7 +85,6 @@ fos_user:
         
 vich_uploader:
     db_driver: orm
-    twig: true
     mappings:
         tickets:
             uri_prefix: /images/tickets
@@ -93,4 +93,3 @@ vich_uploader:
             inject_on_load: false
             delete_on_update: false
             delete_on_remove: false
-            

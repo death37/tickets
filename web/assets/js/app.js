@@ -1,4 +1,4 @@
 require('../scss/app.scss');
 require('jquery');
-require('./materialize');
+//require('./materialize');
 require('./jquery.collection');
