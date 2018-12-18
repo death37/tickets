@@ -37,9 +37,9 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    
-    form_themes:
-        - 'materialize_layout.html.twig'
+#    
+#    form_themes:
+#        - 'materialize_layout.html.twig'
 
         
 
@@ -84,7 +84,7 @@ fos_user:
         
 vich_uploader:
     db_driver: orm
-    twig: true
+
     mappings:
         tickets:
             uri_prefix: /images/tickets

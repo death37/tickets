@@ -6,9 +6,12 @@
     
 
         {{ form_start(form) }}
-            {{ form_label(form) }}
-            {{ form_widget(form) }}
-            {{ form_errors(form) }}
+            {% form_theme form 'jquery.collection.html.twig'
+                                    'formThemeButtonCollection.html.twig'
+        %}
+
+        {{ form_row(form) }}
+        {{ form_errors(form) }}
             {#<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 
                 {{ form_widget(form) }}

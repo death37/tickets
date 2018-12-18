@@ -38,9 +38,8 @@ class TicketsType extends AbstractType
                     'choices' => array('Nouveau'=>'new', 'Ouvert'=>'open','En attente'=>'pending','En pause'=>'pause','Résolu'=>'solve')
                     
                 ))
-                ->add('imageFile', CollectionType::class, array(
-                    'entry_type' => VichImageType::class,
-                    
+                ->add('test', CollectionType::class, array(
+                    'entry_type' => TestType::class,
                     'auto_initialize' => true,
                     'allow_add' => true,
                     'allow_delete' => true,
@@ -48,6 +47,7 @@ class TicketsType extends AbstractType
                     'by_reference' => false,
                     'attr' => array(
                         'class' => 'my-selector')
+                        
                 ))
 //                ->add('imageFile', VichImageType::class, array(
 //                    'required' => false,
@@ -69,7 +69,7 @@ class TicketsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Tickets'
+            'data_class' => 'AppBundle\Entity\Tickets',
         ));
     }
 
