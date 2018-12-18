@@ -6,15 +6,14 @@
 
         {{ form_start(form) }}
 
-        {{ form_row(form) }}
-        {{ form_errors(form) }}
-            {#<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        
+        {#{{ form_row(form.state, { 'label': 'Etat'}) }}#}
 
-                {% form_theme form.imageFile 'jquery.collection.html.twig'
-                                             'formThemeButtonCollection.html.twig'%}
-                {{ form_widget(form.imageFile, { 'label': 'Ajout d\'image'}) }}
+        
+                {% form_theme form.title 'jquery.collection.html.twig'
+                                             'formThemeButtonCollection.html.twig' %}
                 
-
+                {{ form_widget(form.title, { 'label': 'Titre'}) }}
 
             <input type="submit" value="Valider" />
         {{ form_end(form) }}

@@ -18,8 +18,24 @@ class TestType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('test', TextType::class, array(
-                    'label'=>'Truc'
-                ));
+        $builder->add('title');
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Tickets'
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'TestType';
     }
 }    
