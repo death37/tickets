@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Tickets;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Image;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -47,6 +48,8 @@ class TicketsController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $ticket->setUsers($user);
+        $images = new Image();
+        $ticket->setImages($images);
         $form = $this->createForm('AppBundle\Form\TicketsType',$ticket);
         $form->handleRequest($request);
 

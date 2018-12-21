@@ -42,25 +42,9 @@ class TicketsType extends AbstractType
                     'label'=>'Problème rencontré',
                     'config' => array('toolbar' => 'standard'),   
                 ))
-
-//                ->add('imageFile', VichImageType::class, array(
-//                    'required' => false,
-//                    'allow_delete' => true,
-//                    'download_uri' => true,
-//                    'image_uri' => true,
-//                ))
                 
-                ->add('imageFile', CollectionType::class, array(
-                    'entry_type' => VichImageType::class,
-                    'entry_options'=> array(
-                        'required' => false,
-                        'allow_delete' => true,
-                        'download_uri' => true,
-                        'image_uri' => true,
-                        
-                    ),
-                    'error_bubbling' => false,
-
+                ->add('images', CollectionType::class, array(
+                    'entry_type' => ImageType::class,
                     'auto_initialize' => true,
                     'allow_add' => true,
                     'allow_delete' => true,
