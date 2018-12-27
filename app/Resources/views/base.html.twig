@@ -6,8 +6,10 @@
         <title>{% block title %}Gestion Ticket{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{#            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">#}
             <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
@@ -19,9 +21,12 @@
         {% block footer %}{% include 'default/footer.html.twig' %}{% endblock %}
         
         {% block javascripts %}
-            {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="  crossorigin="anonymous"></script>#}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="  crossorigin="anonymous"></script>
             <script src="{{ asset('build/app.js') }}"></script>
+            <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+
+
         {% endblock %}
     </body>
 </html>

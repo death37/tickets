@@ -27,14 +27,7 @@ Encore
 
         // create hashed filenames (e.g. app.abc123.css)
         // .enableVersioning()
-        
-        .enableSingleRuntimeChunk()
         ;
-        
-    const config = Encore.getWebpackConfig();
-    config.watchOptions = {
-        poll: true,
-    };    
 
 // export the final configuration
-module.exports = config;
+module.exports = Encore.getWebpackConfig();

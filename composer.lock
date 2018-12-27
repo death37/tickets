@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c695a27c189054ad6724c65ea047c8d",
+    "content-hash": "d4c7339536f8d824508210263a17598a",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1586,6 +1586,125 @@
             "time": "2018-11-05T09:00:11+00:00"
         },
         {
+            "name": "ninsuo/symfony-collection",
+            "version": "2.1.30",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ninsuo/symfony-collection.git",
+                "reference": "88db2caea7bba13cd7a7beb938fa706a340b38e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ninsuo/symfony-collection/zipball/88db2caea7bba13cd7a7beb938fa706a340b38e9",
+                "reference": "88db2caea7bba13cd7a7beb938fa706a340b38e9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "ScriptHandler.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alain Tiemblo",
+                    "email": "ninsuo@gmail.com"
+                }
+            ],
+            "description": "A jQuery plugin that manages adding, deleting and moving elements from a Symfony collection",
+            "time": "2018-07-01T15:06:12+00:00"
+        },
+        {
+            "name": "omines/datatables-bundle",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/omines/datatables-bundle.git",
+                "reference": "363c3ee2f8583f7df98d2db30e0b1ca0d346a4a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/omines/datatables-bundle/zipball/363c3ee2f8583f7df98d2db30e0b1ca0d346a4a8",
+                "reference": "363c3ee2f8583f7df98d2db30e0b1ca0d346a4a8",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0.8",
+                "symfony/framework-bundle": "^3.3|^4.0",
+                "symfony/property-access": "^3.0|^4.0",
+                "symfony/translation": "^3.2|^4.0"
+            },
+            "require-dev": {
+                "doctrine/common": "^2.6",
+                "doctrine/doctrine-bundle": "^1.6.7",
+                "doctrine/orm": "^2.5",
+                "ext-pdo_sqlite": "*",
+                "friendsofphp/php-cs-fixer": "^2.7",
+                "mongodb/mongodb": "^1.2",
+                "phpunit/phpunit": "^6.1|^7.1",
+                "ruflin/elastica": "^6.0",
+                "symfony/browser-kit": "^3.0|^4.0",
+                "symfony/css-selector": "^3.0|^4.0",
+                "symfony/dom-crawler": "^3.0|^4.0",
+                "symfony/phpunit-bridge": "^3.3|^4.0",
+                "symfony/templating": "^3.0|^4.0",
+                "symfony/twig-bundle": "^3.3|^4.0",
+                "symfony/var-dumper": "^3.0|^4.0",
+                "symfony/yaml": "^3.3|^4.0"
+            },
+            "suggest": {
+                "doctrine/doctrine-bundle": "For integrated access to Doctrine object managers",
+                "doctrine/orm": "For full automated integration with Doctrine entities",
+                "mongodb/mongodb": "For integration with MongoDB collections",
+                "ruflin/elastica": "For integration with Elasticsearch indexes",
+                "symfony/twig-bundle": "To use default Twig based rendering and TwigColumn"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Omines\\DataTablesBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Niels Keurentjes",
+                    "email": "niels.keurentjes@omines.com",
+                    "homepage": "https://omines.nl/"
+                },
+                {
+                    "name": "Robbert Beesems",
+                    "email": "robbert.beesems@omines.com",
+                    "homepage": "https://omines.nl/"
+                }
+            ],
+            "description": "Symfony DataTables Bundle with native Doctrine ORM, Elastica and MongoDB support",
+            "keywords": [
+                "bundle",
+                "datatable",
+                "datatables",
+                "doctrine",
+                "elastica",
+                "jquery",
+                "mongodb",
+                "orm",
+                "symfony"
+            ],
+            "time": "2018-11-29T09:59:46+00:00"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "v2.0.17",
             "source": {
@@ -1998,16 +2117,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v5.0.2",
+            "version": "v5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "728f9fb0fe815003b3bcfd331d33106c0d8a6b1e"
+                "reference": "46be3f58adac13084497961e10eed9a7fb4d44d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/728f9fb0fe815003b3bcfd331d33106c0d8a6b1e",
-                "reference": "728f9fb0fe815003b3bcfd331d33106c0d8a6b1e",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/46be3f58adac13084497961e10eed9a7fb4d44d1",
+                "reference": "46be3f58adac13084497961e10eed9a7fb4d44d1",
                 "shasum": ""
             },
             "require": {
@@ -2040,7 +2159,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2018-12-10T06:08:43+00:00"
+            "time": "2018-12-19T17:14:59+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

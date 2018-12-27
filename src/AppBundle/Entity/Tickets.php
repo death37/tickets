@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 
@@ -26,7 +27,7 @@ class Tickets
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
@@ -54,7 +55,7 @@ class Tickets
     /**
      * @var string
      *
-     * @ORM\Column(name="state", type="boolean", options={"default": false})
+     * @ORM\Column(name="state", type="boolean", options={"default": false}, nullable=true)
      */
     private $state;
 
@@ -62,12 +63,12 @@ class Tickets
     /**
      * @var string
      *
-     * @ORM\Column(name="problem", type="string", length=255)
+     * @ORM\Column(name="problem", type="string", length=255, nullable=true)
      */
     private $problem;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime")
      *
      * @var \DateTime
      */
@@ -76,10 +77,10 @@ class Tickets
     
     /**
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Image", mappedBy="ticketsImage", cascade={"persist", "merge", "remove"}, fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Image", mappedBy="ticketImage", cascade={"persist"})
      *
      */
-    private $images;
+    private $images = null;
     
     /**
      *
@@ -94,18 +95,55 @@ class Tickets
         $this->createdAt = new \DateTime();
         $this->editedAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+        $this->images = new ArrayCollection();
+    }
+    
+    public function __toString()
+    {
+        return $this->title;
     }
     
     /**
-     * Set images
+     * Add image
      *
-     * @param \AppBundle\Entity\Image $images
+     * @param \AppBundle\Entity\Image $image
      *
      * @return Tickets
      */
-    public function setImages(\AppBundle\Entity\Image $images = null)
+    public function addImage(\AppBundle\Entity\Image $image)
     {
-        $this->datas = $images;
+        $image->setTicketImage($this);
+        $this->images->add($image);
+
+    }
+    
+//    public function addImage(Image $image)
+//    {
+//        $this->images[] = $image;
+//        $image->setTicketImage($this);
+//        $this->images->add($image);
+//    }
+
+    /**
+     * Remove image
+     *
+     * @param \AppBundle\Entity\Image $image
+     */
+    public function removeImage(\AppBundle\Entity\Image $image)
+    {
+        $this->images->removeElement($image);
+    }
+    
+    /**
+     * set images
+     *
+     * @param \AppBundle\Entity\Image $image
+     *
+     * @return Tickets
+     */
+    public function setImages(\AppBundle\Entity\Image $image)
+    {
+        $this->images[] = $image;
 
         return $this;
     }

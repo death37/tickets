@@ -2,7 +2,6 @@
 
 {% block body %}
     <h1>Ticket</h1>
-
     <table>
         <tbody>
             <tr>
@@ -35,8 +34,14 @@
             </tr>
             <tr>
                 <th>Picture</th>
-
-                <td><img class="materialboxed responsive-img" src="/images/tickets/{{ ticket.imageName }}" width="200"></td>
+                {% for image in ticket.images %}
+                <td class="zoom">
+                    <p>
+                        <a data-fancybox="gallery" href="/images/tickets/{{ image.imageName }}"><img src="/images/tickets/{{ image.imageName }}" width="200"></a>
+{#                    <img class="materialboxed responsive-img" src="/images/tickets/{{ image.imageName }}" width="200">#}
+                    </p>
+                </td>
+                {% endfor %}
             </tr>
             <tr>
                 <th>Problem</th>

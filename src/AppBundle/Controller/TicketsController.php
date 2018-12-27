@@ -44,14 +44,17 @@ class TicketsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $ticket = new Tickets();
+        $ticket = new Tickets();http://localhost:8000/tickets/new#
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $ticket->setUsers($user);
-        $images = new Image();
-        $ticket->setImages($images);
+        
+        $image = new Image();
+        $ticket->addImage($image);
         $form = $this->createForm('AppBundle\Form\TicketsType',$ticket);
         $form->handleRequest($request);
+        
+        //https://omines.github.io/datatables-bundle/#installation
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();

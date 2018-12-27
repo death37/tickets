@@ -1,8 +1,8 @@
 
-{% block ImageType_label %}{% endblock %}
+{#{% block ImagesType_label %}{% endblock %}
 
 
-{% block ImageType_widget %}
+{% block ImagesType_widget %}
 <div class="row">
     <div class="col-md-8 inputRight">
         {{ form_widget(form) }}
@@ -17,5 +17,30 @@
     </div>
 </div>
         
-{% endblock %}
+{% endblock %}#}
 
+
+{% block ImageType_label %}{% endblock %}
+{% block ImageType_errors %}{% endblock %}
+
+{#{% block ImageType_row %}
+    <div class="row">
+        {{ form_label(form) }}
+  {{ form_errors(form) }}
+  {{ form_widget(form) }}
+</div>  
+{% endblock %}#}
+
+{% block ImageType_widget %}
+    <div class="row">
+        {{ form_widget(form) }}
+    </div>
+    <div class="col-md-2">
+        <a href="#" class="collection-up btn btn-default">up</a>
+        <a href="#" class="collection-down btn btn-default">down</a>
+    </div>
+    <div class="col-md-2">
+        <a href="#" class="collection-add btn btn-default">+</a>
+        <a href="#" class="collection-remove btn btn-default">-</a>
+    </div>
+{% endblock %}

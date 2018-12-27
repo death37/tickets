@@ -11,7 +11,7 @@
                 <th>Editedat</th>
                 <th>Priority</th>
                 <th>State</th>
-                <th>Picture</th>
+{#                <th>Picture</th>#}
                 <th>Problem</th>
                 <th>Actions</th>
             </tr>
@@ -27,7 +27,7 @@
                 <td>{{ ticket.priority }}</td>
                 <td>{% if ticket.state %}Yes{% else %}No{% endif %}</td>
 
-                <td><img  class="materialboxed responsive-img" src="/images/tickets/{{ ticket.imageName }}" width="200"></td>
+{#                <td><img  class="materialboxed responsive-img" src="/images/tickets/{{ ticket.imageName }}" width="200"></td>#}
                 <td>{{ ticket.problem }}</td>
                 <td>
                     <ul>

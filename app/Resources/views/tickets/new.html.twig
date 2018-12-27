@@ -2,21 +2,14 @@
 
 {% block body %}
     <h1>Nouveau Ticket</h1>
-    
-{{ dump() }}
+
         {{ form_start(form) }}
 
-        
-{#        {{ form_row(form.title, { 'label': 'titre'}) }}
-        {{ form_row(form.state, { 'label': 'Etat'}) }}#}
-
-        
-                {% form_theme form.images 'jquery.collection.html.twig'
-                                             'formThemeButtonCollection.html.twig' %}
+                {% form_theme form 'jquery.collection.html.twig'
+                                   'formThemeButtonCollection.html.twig' %}
+                {{ form_widget(form) }}
                 
-                {{ form_widget(form.images, { 'label': 'image'}) }}
-
-            
+        <input type="submit" value="Valider" />
         {{ form_end(form) }}
 
         <ul>

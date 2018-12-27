@@ -28,7 +28,7 @@ class Image
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
-     * @Vich\UploadableField(mapping="tickets", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="tickets", fileNameProperty="imageName")
      * 
      * @var File
      */
@@ -37,7 +37,7 @@ class Image
     /**
      * @var string
      *
-     * @ORM\Column(name="imageName", type="string", length=255)
+     * @ORM\Column(name="imageName", type="string", length=255, nullable=true)
      */
     private $imageName;
 
@@ -50,10 +50,17 @@ class Image
     
     /**
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tickets", inversedBy="images", cascade={"persist", "merge", "remove"}, fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tickets", inversedBy="images", cascade={"persist"})
+     * @ORM\JoinColumn(name="ticket_id", referencedColumnName="id")
      *
      */
-    private $ticketsImage;
+    private $ticketImage = null;
+    
+    public function __construct()
+    {
+        $this->updatedAt = new \DateTime();
+
+    }
 
     /**
      * Get id.
@@ -74,9 +81,9 @@ class Image
      */
     public function setImageFile($imageFile = null)
     {
-        $this->imageFile = $image;
+        $this->imageFile = $imageFile;
 
-        if (null !== $image) {
+        if (null !== $imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
@@ -142,26 +149,26 @@ class Image
     }
 
     /**
-     * Set ticketsImage.
+     * Set ticketImage.
      *
-     * @param \AppBundle\Entity\Tickets|null $ticketsImage
+     * @param \AppBundle\Entity\Tickets|null $ticketImage
      *
      * @return Image
      */
-    public function setTicketsImage(\AppBundle\Entity\Tickets $ticketsImage = null)
+    public function setTicketImage(\AppBundle\Entity\Tickets $ticketImage = null)
     {
-        $this->ticketsImage = $ticketsImage;
+        $this->ticketImage = $ticketImage;
 
         return $this;
     }
 
     /**
-     * Get ticketsImage.
+     * Get ticketImage.
      *
-     * @return \AppBundle\Entity\Tickets|null
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getTicketsImage()
+    public function getTicketImage()
     {
-        return $this->ticketsImage;
+        return $this->ticketImage;
     }
 }

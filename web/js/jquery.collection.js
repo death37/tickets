@@ -18,6 +18,7 @@
 
 ;
 (function ($) {
+
     $.fn.collection = function (options) {
 
         var defaults = {
