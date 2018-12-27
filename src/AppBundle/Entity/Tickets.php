@@ -77,15 +77,15 @@ class Tickets
     
     /**
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Image", mappedBy="ticketImage", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Image", mappedBy="ticketImage", cascade={"persist", "merge", "remove"}, fetch="EAGER")
      *
      */
     private $images = null;
     
     /**
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="tickets", cascade={"persist", "merge", "remove"}, fetch="EAGER")
-     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="tickets", cascade={"persist", "merge"}, fetch="EAGER")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $users;
     
@@ -116,13 +116,6 @@ class Tickets
         $this->images->add($image);
 
     }
-    
-//    public function addImage(Image $image)
-//    {
-//        $this->images[] = $image;
-//        $image->setTicketImage($this);
-//        $this->images->add($image);
-//    }
 
     /**
      * Remove image

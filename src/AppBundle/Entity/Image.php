@@ -50,9 +50,8 @@ class Image
     
     /**
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tickets", inversedBy="images", cascade={"persist"})
-     * @ORM\JoinColumn(name="ticket_id", referencedColumnName="id")
-     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tickets", inversedBy="images", cascade={"persist", "merge", "remove"})
+     * @ORM\JoinColumn(name="ticket_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $ticketImage = null;
     
