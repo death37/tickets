@@ -10,6 +10,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Omines\DataTablesBundle\Adapter\ArrayAdapter;
+use Omines\DataTablesBundle\Column\TextColumn;
+use Omines\DataTablesBundle\Controller\DataTablesTrait;
 
 /**
  * Ticket controller.
@@ -18,6 +21,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
  */
 class TicketsController extends Controller
 {
+    use DataTablesTrait;
+    
     /**
      * Lists all ticket entities.
      *
@@ -78,14 +83,35 @@ class TicketsController extends Controller
      * @Route("/{id}", name="tickets_show")
      * @Method("GET")
      */
-    public function showAction(Tickets $ticket)
+    public function showAction(Request $request,Tickets $ticket)
     {
-        $deleteForm = $this->createDeleteForm($ticket);
+        $table = $this->createDataTable()
+            ->add('firstName', TextColumn::class, ['label' => 'customer.name', 'className' => 'bold'])
+            ->add('lastName', TextColumn::class)
+            ->createAdapter(ArrayAdapter::class, [
+                ['firstName' => 'Donald', 'lastName' => 'Trump'],
+                ['firstName' => 'Barack', 'lastName' => 'Obama'],
+            ])
+            ->handleRequest($request);
 
-        return $this->render('tickets/show.html.twig', array(
+        if ($table->isCallback()) {
+            return $table->getResponse();
+        }
+
+        
+        
+        $deleteForm = $this->createDeleteForm($ticket);
+        return $this->render('tickets/show.html.twig', [
+            'datatable' => $table,
             'ticket' => $ticket,
             'delete_form' => $deleteForm->createView(),
-        ));
+            ]);
+        
+        
+//        return $this->render('tickets/show.html.twig', array(
+//            'ticket' => $ticket,
+//            'delete_form' => $deleteForm->createView(),
+//        ));
     }
 
     /**

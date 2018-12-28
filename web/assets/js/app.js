@@ -4,5 +4,5 @@ require('./jquery-ui');
 //require('./jquery.ui.widget');
 require('../js/jquery.collection');
 require('./tickets');
-//require('./materialize');
+require('./materialize');
 

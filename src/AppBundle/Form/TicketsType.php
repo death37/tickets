@@ -20,32 +20,31 @@ class TicketsType extends AbstractType {
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder
-//                ->add('title', TextType::class, array(
-//                    'label'=>'Titre',
-////                    'label_attr' => array('class' => 'mdl-textfield__label'),
-////                    'attr'       => array('class' => 'mdl-textfield__input'),
-//                ))
-//                ->add('priority', ChoiceType::class, array(
-//                    'label'=>'Priorité',
-////                    'label_attr' => array('class' => 'mdl-selectfield__labelgit '),
-////                    'attr'       => array('class' => 'mdl-selectfield__select'),
-//                    'choices' => array('Basse'=>'low', 'Normale'=> 'normal', 'Haute'=>'high', 'Urgent'=>'urgent','Clos'=>'close')
-//                ))
-//                ->add('state', ChoiceType::class, array(
-//                    'label'=>'Etat',
-////                    'attr' => array('class' => 'mdl-textfield__input'),
-//                    'choices' => array('Nouveau'=>'new', 'Ouvert'=>'open','En attente'=>'pending','En pause'=>'pause','Résolu'=>'solve')
-//
-//                ))                
-//                ->add('problem', CKEditorType::class, array(
-//                    'label'=>'Problème rencontré',
-//                    'config' => array('toolbar' => 'standard'),   
-//                ))
+        $builder->add('title', TextType::class, array(
+                    'label'=>'Titre',
+//                    'label_attr' => array('class' => 'mdl-textfield__label'),
+//                    'attr'       => array('class' => 'mdl-textfield__input'),
+                ))
+                ->add('priority', ChoiceType::class, array(
+                    'label'=>'Priorité',
+//                    'label_attr' => array('class' => 'mdl-selectfield__labelgit '),
+//                    'attr'       => array('class' => 'mdl-selectfield__select'),
+                    'choices' => array('Basse'=>'Basse', 'Normale'=> 'Normale', 'Haute'=>'Haute', 'Urgent'=>'Urgent','Clos'=>'Clos')
+                ))
+                ->add('state', ChoiceType::class, array(
+                    'label'=>'Etat',
+//                    'attr' => array('class' => 'mdl-textfield__input'),
+                    'choices' => array('Nouveau'=>'new', 'Ouvert'=>'open','En attente'=>'pending','En pause'=>'pause','Résolu'=>'solve')
+
+                ))                
+                ->add('problem', CKEditorType::class, array(
+                    'label'=>'Problème rencontré',
+                    'config' => array('toolbar' => 'standard'),   
+                ))
                 ->add('images', CollectionType::class, array(
                     'entry_type' => ImageType::class,
                     'entry_options' => array('label' => false),
-                    'label' => 'image',
+                    'label' => 'image(s) / capture(s) d\'écran',
                     'auto_initialize' => true,
                     'allow_add' => true,
                     'allow_delete' => true,

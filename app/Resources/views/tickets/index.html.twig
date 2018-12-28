@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {{ dump() }}
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>User</th>
-                <th>Title</th>
-                <th>Createdat</th>
-                <th>Editedat</th>
-                <th>Priority</th>
-                <th>State</th>
+                <th>Utilisateur</th>
+                <th>Titre</th>
+                <th>Créé le</th>
+                <th>Edité le</th>
+                <th>Priorité</th>
+                <th>Etat</th>
 {#                <th>Picture</th>#}
-                <th>Problem</th>
+                <th>Description du problème</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,17 +26,19 @@
                 <td>{% if ticket.createdAt %}{{ ticket.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if ticket.editedAt %}{{ ticket.editedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ ticket.priority }}</td>
-                <td>{% if ticket.state %}Yes{% else %}No{% endif %}</td>
-
-{#                <td><img  class="materialboxed responsive-img" src="/images/tickets/{{ ticket.imageName }}" width="200"></td>#}
+                <td>{% if ticket.state %}Oui{% else %}Non{% endif %}</td>
+                <td>
+                   {% for image in ticket.images %}
+                    <img  class="materialboxed responsive-img" src="/images/tickets/{{ image.imageName }}" width="200"></td>
+                   {% endfor %}
                 <td>{{ ticket.problem }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('tickets_show', { 'id': ticket.id }) }}">show</a>
+                            <a href="{{ path('tickets_show', { 'id': ticket.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('tickets_edit', { 'id': ticket.id }) }}">edit</a>
+                            <a href="{{ path('tickets_edit', { 'id': ticket.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -46,7 +49,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('tickets_new') }}">Create a new ticket</a>
+            <a href="{{ path('tickets_new') }}">Ouvrir un nouveau ticket</a>
         </li>
     </ul>
 {% endblock %}
