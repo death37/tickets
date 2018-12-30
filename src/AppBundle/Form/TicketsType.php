@@ -21,30 +21,29 @@ class TicketsType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add('title', TextType::class, array(
-                    'label'=>'Titre',
+                    'label'=>'Titre : ',
 //                    'label_attr' => array('class' => 'mdl-textfield__label'),
 //                    'attr'       => array('class' => 'mdl-textfield__input'),
                 ))
                 ->add('priority', ChoiceType::class, array(
-                    'label'=>'Priorité',
+                    'label'=>'Priorité : ',
 //                    'label_attr' => array('class' => 'mdl-selectfield__labelgit '),
 //                    'attr'       => array('class' => 'mdl-selectfield__select'),
                     'choices' => array('Basse'=>'Basse', 'Normale'=> 'Normale', 'Haute'=>'Haute', 'Urgent'=>'Urgent','Clos'=>'Clos')
                 ))
                 ->add('state', ChoiceType::class, array(
-                    'label'=>'Etat',
+                    'label'=>'Etat : ',
 //                    'attr' => array('class' => 'mdl-textfield__input'),
                     'choices' => array('Nouveau'=>'new', 'Ouvert'=>'open','En attente'=>'pending','En pause'=>'pause','Résolu'=>'solve')
-
                 ))                
                 ->add('problem', CKEditorType::class, array(
-                    'label'=>'Problème rencontré',
+                    'label'=>'Description : ',
                     'config' => array('toolbar' => 'standard'),   
                 ))
                 ->add('images', CollectionType::class, array(
                     'entry_type' => ImageType::class,
                     'entry_options' => array('label' => false),
-                    'label' => 'image(s) / capture(s) d\'écran',
+                    'label' => 'image(s) / capture(s) d\'écran : ',
                     'auto_initialize' => true,
                     'allow_add' => true,
                     'allow_delete' => true,

@@ -1,17 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {{ dump() }}
     <h1>Nouveau Ticket</h1>
-{{ dump() }}
-        {{ form_start(form) }}
+    <div id="ticket-new">
+        <p>Demandeur : {{ app.user.username }}</p>
+            {{ form_start(form) }}
+            <div class="row"
+                <div class="input-field col s12 m6">
+                {{ form_row (form.title) }}
 
-                {% form_theme form 'jquery.collection.html.twig'
-                                   'formThemeButtonCollection.html.twig' %}
-                {{ form_widget(form) }}
-                
-        <input type="submit" value="Valider" />
-        {{ form_end(form) }}
+                <div class="select-wrapper">
+                    {{ form_row (form.priority) }}
+                </div>
 
+                {{ form_row (form.state) }}
+                {{ form_row (form.problem) }}
+
+                        {% form_theme form 'jquery.collection.html.twig'
+                                           'formThemeButtonCollection.html.twig' %}
+                        {{ form_widget(form) }}
+                </div>        
+            </div>        
+            <input type="submit" value="Valider" />
+            {{ form_end(form) }}
+    </div>        
         <ul>
             <li>
                 <a href="{{ path('tickets_index') }}">Back to the list</a>
