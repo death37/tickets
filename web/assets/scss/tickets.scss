@@ -9,3 +9,33 @@
 .demo-card-wide > .mdl-card__menu {
   color: #fff;
 }
+
+nav .brand-logo {
+  left: 3%;
+}
+
+/* inline_style_edits.inline.css */
+
+#ticket-new {
+  width: 60%;
+  margin: auto;
+}
+
+nav {
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+#TicketsType {
+  border: 1px solid aqua;
+  margin-top: 1%;
+}
+
+[name] .row:nth-of-type(1) > div:nth-of-type(4) {
+  border: 1px solid aqua;
+  margin-top: 1%;
+}

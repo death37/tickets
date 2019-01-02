@@ -49,25 +49,16 @@
             </tr>
         </tbody>
     </table>
-<div id="presidents">Loading...</div>
-
-<!-- Insert this at the end of your body element, but before the closing tag -->
-<script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
-<script>
-$(function() {
-    $('#presidents').initDataTables({{ datatable_settings(datatable) }});
-});
-</script>
     <ul>
         <li>
-            <a href="{{ path('tickets_index') }}">Back to the list</a>
+            <a href="{{ path('tickets_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('tickets_edit', { 'id': ticket.id }) }}">Edit</a>
+            <a href="{{ path('tickets_edit', { 'id': ticket.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

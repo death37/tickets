@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ dump() }}
     <table>
         <thead>
             <tr>
@@ -12,7 +11,7 @@
                 <th>Edité le</th>
                 <th>Priorité</th>
                 <th>Etat</th>
-{#                <th>Picture</th>#}
+                <th>Image(s)</th>
                 <th>Description du problème</th>
                 <th>Actions</th>
             </tr>
@@ -28,9 +27,12 @@
                 <td>{{ ticket.priority }}</td>
                 <td>{% if ticket.state %}Oui{% else %}Non{% endif %}</td>
                 <td>
-                   {% for image in ticket.images %}
-                    <img  class="materialboxed responsive-img" src="/images/tickets/{{ image.imageName }}" width="200"></td>
-                   {% endfor %}
+                    <ul>
+                        {% for image in ticket.images %}
+                            <li><a data-fancybox="gallery" href="/images/tickets/{{ image.imageName }}"><img class="materialboxed responsive-img" src="/images/tickets/{{ image.imageName }}" width="50"></a></li>
+                        {% endfor %}
+                    </ul>
+                </td>
                 <td>{{ ticket.problem }}</td>
                 <td>
                     <ul>
