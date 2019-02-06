@@ -1,4 +1,11 @@
 .login-base {
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    .text_title{
+        text-shadow: 1px 1px 2px black; 
+    }
+    
     .title {
         margin-top: 8%;
         margin-bottom: -5%;
@@ -69,11 +76,8 @@
         color: #666;
         font-weight: 400;
         text-align: center;
-        display: inline-block;
         opacity: 0.6;
         transition: opacity ease 0.5s;
-        font-size:1.1em;
-        padding: 6%;
     }
     .login-help{
         font-size: 12px;
@@ -114,5 +118,6 @@
     }
     .createcompte {
         display: block;
+        padding-bottom: 10px;
     }
 }        
